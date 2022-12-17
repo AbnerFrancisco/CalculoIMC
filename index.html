@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de JavaScript</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+        <label for="peso">Peso</label>
+        <input type="text" name="peso">
+    </div>
+        <div>
+        <label for="Altura">Altura</label>
+        <input type="text" name="altura">
+    </div>
+    <div>
+    IMC:<span class="resultado"></span>
+    <button class="botao">Calcular IMC</button>
+    </div>
+</div>
+
+<script>
+    var inputPeso = document.querySelector('input[name=peso]');
+    var inputAltura = document.querySelector('input[name=altura]');
+    var btnElement = document.querySelector('button.botao');
+    var resultado = document.querySelector('span');
+
+    btnElement.onclick = function(){
+        var peso = eval(inputPeso.value);
+        var altura = eval(inputAltura.value);
+        var imc = peso / (altura*altura);
+        resultado.innerHTML = imc;
+
+        if (imc<18.5) {
+            alert("Classificação: MAGRESA!");        
+        }
+        if (imc>= 18.5 && imc<=24.9) {
+            alert("Classificação: NA MÉDIA!");        
+        }
+        if (imc>= 25.0 && imc<=29.9) {
+            alert("Classificação: SOBREPESO!");        
+        }
+        if (imc>= 30.0 && imc<=39.9) {
+            alert("Classificação: OBESIDADE!");        
+        }
+        if (imc>40.0) {
+            alert("Classificação: OBESIDADE GRAVE!!");        
+        }
+    }
+</script>
+</body>
+</html>
